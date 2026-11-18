@@ -1,8 +1,10 @@
 import argparse
+from pathlib import Path
 import cv2
 from ultralytics import YOLO
 
 WEIGHTS = "weights/best.pt"
+CONF = float(Path("weights/best_conf.txt").read_text())
 
 def main():
     parser = argparse.ArgumentParser()
@@ -20,8 +22,8 @@ def main():
         ok, frame = video.read()
         if not ok:
             break
-        result = model(frame, verbose=False)[0]
-        writer.write(result.plot())  
+        result = model(frame, conf=CONF, verbose=False)[0]
+        writer.write(result.plot())
 
     video.release()
     writer.release()
