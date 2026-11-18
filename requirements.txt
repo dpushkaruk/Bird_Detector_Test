@@ -1,0 +1,7 @@
+ultralytics==8.4.121
+torch==2.15.0
+torchvision==0.29.2
+numpy==2.5.5
+opencv-python==5.1.0.95
+PyYAML==6.0.3
+scikit-learn==1.9.1
